@@ -1,27 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sound Button</title>
+  <title>Sonolo Zvukové tlačítko</title>
+  <link rel="icon" type="image/png" href="assets/icon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="play-mode">
 
   <!-- Play View -->
   <div id="play-view">
-    <button id="gear-btn" aria-label="Open settings">⚙</button>
-    <button id="orb" aria-label="Press and hold to play sound"></button>
+    <button id="gear-btn" data-i18n-aria="openSettings">⚙</button>
+    <button id="orb" data-i18n-aria="holdToPlay"></button>
   </div>
 
   <!-- Settings View -->
   <div id="settings-view">
     <div class="settings-card">
-      <h2>Session Settings</h2>
+      <h2 data-i18n="sessionSettings"></h2>
 
       <section>
         <fieldset>
-          <legend>Octave</legend>
+          <legend data-i18n="octave"></legend>
           <div class="btn-group" id="octave-group">
             <button class="octave-btn" data-octave="3" aria-pressed="false">3</button>
             <button class="octave-btn" data-octave="4" aria-pressed="false">4</button>
@@ -32,7 +33,7 @@
 
       <section>
         <fieldset>
-          <legend>Note</legend>
+          <legend data-i18n="note"></legend>
           <div class="btn-group" id="note-group">
             <button class="note-btn" data-note="C" aria-pressed="false">C</button>
             <button class="note-btn" data-note="D" aria-pressed="false">D</button>
@@ -47,14 +48,14 @@
 
       <div id="note-display" class="note-display" aria-live="polite"></div>
 
-      <button id="preview-btn">▶ Preview</button>
+      <button id="preview-btn" data-i18n="preview"></button>
 
       <section>
-        <label for="volume-slider">Volume</label>
+        <label for="volume-slider" data-i18n="volume"></label>
         <input type="range" id="volume-slider" min="0" max="100" value="70">
       </section>
 
-      <button id="start-session-btn">Start Session</button>
+      <button id="start-session-btn" data-i18n="startSession"></button>
     </div>
   </div>
 

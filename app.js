@@ -1,3 +1,42 @@
+// === Translations ===
+const TRANSLATIONS = {
+  cs: {
+    sessionSettings: 'Nastavení',
+    octave: 'Oktáva',
+    note: 'Tón',
+    preview: '▶ Ukázka',
+    volume: 'Hlasitost',
+    startSession: 'Spustit',
+    openSettings: 'Otevřít nastavení',
+    holdToPlay: 'Stiskni a drž pro přehrání zvuku',
+  },
+  en: {
+    sessionSettings: 'Session Settings',
+    octave: 'Octave',
+    note: 'Note',
+    preview: '▶ Preview',
+    volume: 'Volume',
+    startSession: 'Start Session',
+    openSettings: 'Open settings',
+    holdToPlay: 'Press and hold to play sound',
+  },
+};
+
+const lang = localStorage.getItem('bapp_lang') || 'cs';
+
+function t(key) {
+  return (TRANSLATIONS[lang] || TRANSLATIONS.cs)[key] || key;
+}
+
+function applyTranslations() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    el.textContent = t(el.dataset.i18n);
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    el.setAttribute('aria-label', t(el.dataset.i18nAria));
+  });
+}
+
 // === Constants ===
 const NOTES = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
 const OCTAVES = [3, 4, 5];
@@ -144,6 +183,7 @@ function previewTone() {
 // === Init ===
 function init() {
   loadSettings();
+  applyTranslations();
   renderSettings();
 
   // Mode switching
