@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sound Button</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="play-mode">
+
+  <!-- Play View -->
+  <div id="play-view">
+    <button id="gear-btn" aria-label="Open settings">⚙</button>
+    <button id="orb" aria-label="Press and hold to play sound"></button>
+  </div>
+
+  <!-- Settings View -->
+  <div id="settings-view">
+    <div class="settings-card">
+      <h2>Session Settings</h2>
+
+      <section>
+        <fieldset>
+          <legend>Octave</legend>
+          <div class="btn-group" id="octave-group">
+            <button class="octave-btn" data-octave="3" aria-pressed="false">3</button>
+            <button class="octave-btn" data-octave="4" aria-pressed="false">4</button>
+            <button class="octave-btn" data-octave="5" aria-pressed="false">5</button>
+          </div>
+        </fieldset>
+      </section>
+
+      <section>
+        <fieldset>
+          <legend>Note</legend>
+          <div class="btn-group" id="note-group">
+            <button class="note-btn" data-note="C" aria-pressed="false">C</button>
+            <button class="note-btn" data-note="D" aria-pressed="false">D</button>
+            <button class="note-btn" data-note="E" aria-pressed="false">E</button>
+            <button class="note-btn" data-note="F" aria-pressed="false">F</button>
+            <button class="note-btn" data-note="G" aria-pressed="false">G</button>
+            <button class="note-btn" data-note="A" aria-pressed="false">A</button>
+            <button class="note-btn" data-note="B" aria-pressed="false">B</button>
+          </div>
+        </fieldset>
+      </section>
+
+      <div id="note-display" class="note-display" aria-live="polite"></div>
+
+      <button id="preview-btn">▶ Preview</button>
+
+      <section>
+        <label for="volume-slider">Volume</label>
+        <input type="range" id="volume-slider" min="0" max="100" value="70">
+      </section>
+
+      <button id="start-session-btn">Start Session</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
