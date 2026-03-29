@@ -9,6 +9,7 @@ const TRANSLATIONS = {
     startSession: 'Spustit',
     openSettings: 'Otevřít nastavení',
     holdToPlay: 'Stiskni a drž pro přehrání zvuku',
+    notes: { C: 'C', D: 'D', E: 'E', F: 'F', G: 'G', A: 'A', B: 'H' },
   },
   en: {
     sessionSettings: 'Session Settings',
@@ -19,6 +20,7 @@ const TRANSLATIONS = {
     startSession: 'Start Session',
     openSettings: 'Open settings',
     holdToPlay: 'Press and hold to play sound',
+    notes: { C: 'C', D: 'D', E: 'E', F: 'F', G: 'G', A: 'A', B: 'B' },
   },
 };
 
@@ -28,12 +30,19 @@ function t(key) {
   return (TRANSLATIONS[lang] || TRANSLATIONS.cs)[key] || key;
 }
 
+function noteName(note) {
+  return ((TRANSLATIONS[lang] || TRANSLATIONS.cs).notes || {})[note] || note;
+}
+
 function applyTranslations() {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     el.textContent = t(el.dataset.i18n);
   });
   document.querySelectorAll('[data-i18n-aria]').forEach(el => {
     el.setAttribute('aria-label', t(el.dataset.i18nAria));
+  });
+  document.querySelectorAll('.note-btn').forEach(btn => {
+    btn.textContent = noteName(btn.dataset.note);
   });
 }
 
@@ -80,7 +89,7 @@ function renderSettings() {
     btn.setAttribute('aria-pressed', String(isSelected));
   });
   document.getElementById('note-display').textContent =
-    `${settings.note}${settings.octave} — ${FREQ[settings.note][settings.octave]} Hz`;
+    `${noteName(settings.note)}${settings.octave} — ${FREQ[settings.note][settings.octave]} Hz`;
   document.getElementById('volume-slider').value = settings.volume;
 }
 
