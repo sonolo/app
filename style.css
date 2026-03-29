@@ -71,6 +71,8 @@ body.settings-mode #settings-view { display: flex; }
   align-items: center;
   justify-content: center;
   position: relative;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 /* === Gear Icon === */
